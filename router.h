@@ -4,13 +4,31 @@
 
 #include "TripsRunner.h"
 
+struct vertex
+{
+  unsigned *adj;
+  bool known;
+  int time;
+  int count;
+  vertex *previous;
+};
+
+/*struct edge
+{
+  unsigned *adj;
+  bool known;
+  int time;
+  vertex *previous;
+}; Same as Flight struct*/
+
 class Router
 {
 public:
   Router(int numCities, int numFlights, Flight *flights);
   void findRoute(const Trip* trip, Itinerary *itinerary);
 private:
-  
+  vertex *arr;
+  Flight *edges;
 
 };
 
