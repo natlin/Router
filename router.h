@@ -6,6 +6,7 @@
 
 struct vertex
 {
+  unsigned current;
   unsigned *adj;
   bool known;
   int time;
@@ -29,6 +30,7 @@ public:
 private:
   vertex *arr;
   Flight *edges;
+  int *valid;
 
 };
 
