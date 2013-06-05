@@ -126,7 +126,7 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
             //cout << "test duration assign" << endl;
             w->duration = v->duration + dur + temp.duration;
             unsigned short t = temp.departureTime + temp.duration;
-            if(t > 1440)
+            if(t >= 1440)
             {
               t = t - 1440;
             }
@@ -139,6 +139,8 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
       }//if
     }//for
   }//while
+            if(trip->destinationIndex == 2675)
+              cout << "help!" << endl;
 
   int num = 0;
   int flightArr[20];
