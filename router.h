@@ -3,13 +3,14 @@
 #define	ROUTER_H
 
 #include "TripsRunner.h"
+#include <iostream>
 
 struct vertex
 {
   unsigned current;
   unsigned *adj;
   bool known;
-  int time;
+  unsigned short time;
   int count;
   vertex *previous;
 };
@@ -31,8 +32,10 @@ private:
   vertex *arr;
   Flight *edges;
   int *valid;
-
+  int done;
+  
 };
 
+#include "PairingHeap.h"
 #endif	/* ROUTER_H */
 
