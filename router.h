@@ -4,6 +4,7 @@
 
 #include "TripsRunner.h"
 #include <iostream>
+#include "LinkedList.h"
 
 struct vertex
 {
@@ -11,8 +12,15 @@ struct vertex
   unsigned *adj;
   bool known;
   unsigned short time;
+  //List<Flight> flightAdj;
+  //ListItr<Flight> itr;
+  int *flightAdj;
+  int itr;
+  unsigned index;
+  int duration;
   int count;
-  vertex *previous;
+  int previous;
+  int flightNum;
 };
 
 /*struct edge
@@ -33,6 +41,7 @@ private:
   Flight *edges;
   int *valid;
   int done;
+  int numFlight;
   
 };
 

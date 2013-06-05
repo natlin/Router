@@ -6,5 +6,6 @@
         class OutOfMemoryException { };
         class BadIteratorException { };
         class IllegalArgumentException { };
+        class BadIterator { };
 
         #endif
