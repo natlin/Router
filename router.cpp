@@ -37,15 +37,23 @@ Router::Router(int numCities, int numFlights, Flight *flights)
       arr[flights[i].originIndex].flightAdj = new int[numFlights];
       valid[done] = flights[i].originIndex;
       done++;
+      arr[flights[i].originIndex].count = arr[flights[i].originIndex].itr = 0;
       arr[flights[i].originIndex].current = flights[i].originIndex;
     }//if
     arr[flights[i].originIndex].adj[arr[flights[i].originIndex].count] = flights[i].destinationIndex;
+    //cout << i << " ";
+    //arr[flights[i].originIndex].flightAdj[arr[flights[i].originIndex].count] = flights[i].flightNum;
+    //cout << arr[flights[i].originIndex].flightAdj[arr[flights[i].originIndex].count] << " ";
     arr[flights[i].originIndex].count++;
     arr[flights[i].originIndex].flightAdj[arr[flights[i].originIndex].itr] = i;
+    //if(i == 93)
+      //cout << "here" << endl;
     arr[flights[i].originIndex].itr++;
     //arr[flights[i].originIndex].flightAdj.insert(
     //arr[flights[i].originIndex].count++;
     edges[i] = flights[i];
+    //if(i == 99)
+    //cout << "here" <<endl;
   }//for(i)
 } // Router()
 
@@ -121,6 +129,8 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
           }//if
           //cout << "here i am " << endl;
           //cout << dur << endl;
+          //if(temp.flightNum == 21 && trip->destinationIndex == 2675)
+            //cout << "here" <<endl;
           if(v->duration + dur + temp.duration < w->duration)
           {
             //cout << "test duration assign" << endl;
@@ -139,8 +149,8 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
       }//if
     }//for
   }//while
-            if(trip->destinationIndex == 2675)
-              cout << "help!" << endl;
+            //if(trip->destinationIndex == 2675)
+              //cout << "help!" << endl;
 
   int num = 0;
   int flightArr[20];
