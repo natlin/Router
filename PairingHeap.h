@@ -31,9 +31,9 @@ class PairingHeap
         PairNode    *leftChild;
         PairNode    *nextSibling;
         PairNode    *prev;
-        vertex       vertexs;
+        vertex       *vertexs;
 
-        PairNode( const Comparable & theElement, const vertex &Element ) : element( theElement ),
+        PairNode( const Comparable & theElement, vertex *Element ) : element( theElement ),
             leftChild( NULL ), nextSibling( NULL ), prev( NULL ), vertexs(Element) { }
     };
 
@@ -176,7 +176,7 @@ class PairingHeap
         return root == NULL;
     }
 
-    const vertex & findMin( ) const
+    vertex * findMin( ) const
     {
         if( isEmpty( ) )
             throw UnderflowException( );
@@ -190,7 +190,7 @@ class PairingHeap
      * Insert item x into the priority queue, maintaining heap order.
      * Return the Position  (a pointer to the node) containing the new item.
      */
-    Position insert( const Comparable & x, const vertex &v )
+    Position insert( const Comparable & x, vertex *v )
     {
         PairNode *newNode = new PairNode( x , v);
 
@@ -224,9 +224,9 @@ class PairingHeap
      * Remove the smallest item from the priority queue.
      * Pass back the smallest item via minItem, or throw UnderflowException if empty.
      */
-    void deleteMin( vertex & minItem )
+    void deleteMin( int &minItem )
     {
-        minItem = findMin( );
+        minItem = findMin( )->current;
         deleteMin( );
     }
 

@@ -45,6 +45,7 @@ private:
   
 };
 
+#include "BinaryHeap.h"
 #include "PairingHeap.h"
 #endif	/* ROUTER_H */
 
