@@ -156,7 +156,7 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
               if((unsigned)pindex[q] == w->current)
                 heap.decreaseKey(p[q], w->duration);
           }
-          
+   
         }//for
       }//if
     }//for
