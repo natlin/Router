@@ -1,7 +1,8 @@
 router.out : router.o TripsRunner.o  
 	g++ -ansi -Wall -g -o router.out router.o TripsRunner.o  
 
-router.o : router.cpp TripsRunner.h router.h 
+router.o : router.cpp TripsRunner.h router.h BinaryHeap.h PairingHeap.h \
+			LinkedList.h
 	g++ -ansi -Wall -g -c router.cpp
 
 TripsRunner.o : TripsRunner.cpp TripsRunner.h router.h CPUTimer.h 
