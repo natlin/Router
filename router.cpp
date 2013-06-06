@@ -64,6 +64,7 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
   PairingHeap< unsigned short > heap;
   vector<PairingHeap < unsigned short >::Position > p(done);
   vector<int> pindex(done);
+  int pindexArr[5700];
   //BinaryHeap<unsigned short > heap;
   for(int i = 0; i < done; i++)
   {
@@ -76,6 +77,7 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
     //heap.insert(arr[valid[i]].duration, &arr[valid[i]]);
     p[i] = heap.insert(arr[valid[i]].duration, &arr[valid[i]]);
     pindex[i] = arr[valid[i]].current;
+    pindexArr[arr[valid[i]].current] = i;
   }//for(flights[i].originIndex)
   
   arr[trip->originIndex].time = trip->departureTime;
@@ -152,9 +154,9 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
             w->time = t;
             w->previous = v->current;
             w->flightNum = temp.flightNum;
-            for(int q = 0; q < done; q++)
-              if((unsigned)pindex[q] == w->current)
-                heap.decreaseKey(p[q], w->duration);
+            //for(int q = 0; q < done; q++)
+              //if((unsigned)pindex[q] == w->current)
+                heap.decreaseKey(p[pindexArr[w->current]], w->duration);
           }
    
         }//for
