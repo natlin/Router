@@ -89,7 +89,7 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
   //vertex *v = &arr[trip->originIndex];
   //vertex *test2 = new vertex;
   //test2->duration = 2147483647;
-  while(1)
+  while(!arr[trip->destinationIndex].known)
   {
     //vertex *test = test2;
     /*for(int i = 0; i < done; i++)

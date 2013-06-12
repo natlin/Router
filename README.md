@@ -18,3 +18,5 @@
 11. router.cpp: around line 140, there was an if statement that said if(dur < 30)
     changed the if statement to fix up djikstras:
       changed line: if(dur < 30 && v->current != trip->originIndex)
+12. router.cpp: the while loop around line 92: changed it from while(1) to:
+      changed line: while(!arr[trip->destinationIndex].known)
