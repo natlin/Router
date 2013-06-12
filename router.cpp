@@ -137,7 +137,7 @@ void Router::findRoute(const Trip* trip, Itinerary *itinerary)
             dur = 1440 + (temp.departureTime - v->time);
           else
             dur = temp.departureTime - v->time;
-          if(dur < 30)
+          if(dur < 30 && v->current != trip->originIndex)
           {
             dur = dur + 1440;
           }//if

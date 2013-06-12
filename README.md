@@ -15,4 +15,6 @@
     removed: arr[flights[i].originIndex].count++;
     removed: arr[flights[i].originIndex].itr++;
 10. commented out line edges[i] = flights[i];
-11.
+11. router.cpp: around line 140, there was an if statement that said if(dur < 30)
+    changed the if statement to fix up djikstras:
+      changed line: if(dur < 30 && v->current != trip->originIndex)
