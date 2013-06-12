@@ -2,15 +2,18 @@
 
 #include "TripsRunner.h"
 #include "router.h"
+#include <cstdlib>
+#include <cstring>
 
 
 Router::Router(int numCities, int numFlights, Flight *flights)
 {
-  arr = new vertex[5700];
+  //arr = new vertex[5700];
   numFlight = numFlights;
   //arr->adj = new unsigned[numCities];
   valid = new int[numCities];
   edges = new Flight[numFlights];
+  memcpy(edges, flights, numFlights * sizeof(Flight));
   done = 0;
   /*for(int i = 0; i < numCities; i++)
   {
@@ -33,25 +36,25 @@ Router::Router(int numCities, int numFlights, Flight *flights)
     if(!arr[flights[i].originIndex].current)
     {
       //arr[flights[i].originIndex].index = flights[i].originIndex;
-      arr[flights[i].originIndex].adj = new unsigned[numCities];
-      arr[flights[i].originIndex].flightAdj = new int[numFlights];
+      //arr[flights[i].originIndex].adj = new unsigned[numCities];
+      //arr[flights[i].originIndex].flightAdj = new int[numFlights];
       valid[done] = flights[i].originIndex;
       done++;
       arr[flights[i].originIndex].count = arr[flights[i].originIndex].itr = 0;
       arr[flights[i].originIndex].current = flights[i].originIndex;
     }//if
-    arr[flights[i].originIndex].adj[arr[flights[i].originIndex].count] = flights[i].destinationIndex;
+    arr[flights[i].originIndex].adj[arr[flights[i].originIndex].count++] = flights[i].destinationIndex;
     //cout << i << " ";
     //arr[flights[i].originIndex].flightAdj[arr[flights[i].originIndex].count] = flights[i].flightNum;
     //cout << arr[flights[i].originIndex].flightAdj[arr[flights[i].originIndex].count] << " ";
-    arr[flights[i].originIndex].count++;
-    arr[flights[i].originIndex].flightAdj[arr[flights[i].originIndex].itr] = i;
+    //arr[flights[i].originIndex].count++;
+    arr[flights[i].originIndex].flightAdj[arr[flights[i].originIndex].itr++] = i;
     //if(i == 93)
       //cout << "here" << endl;
-    arr[flights[i].originIndex].itr++;
+    //arr[flights[i].originIndex].itr++;
     //arr[flights[i].originIndex].flightAdj.insert(
     //arr[flights[i].originIndex].count++;
-    edges[i] = flights[i];
+    //edges[i] = flights[i];
     //if(i == 99)
     //cout << "here" <<endl;
   }//for(i)

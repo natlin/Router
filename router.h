@@ -9,12 +9,12 @@
 struct vertex
 {
   unsigned current;
-  unsigned *adj;
+  unsigned adj[1000];
   bool known;
   unsigned short time;
   //List<Flight> flightAdj;
   //ListItr<Flight> itr;
-  int *flightAdj;
+  short flightAdj[1000];
   int itr;
   unsigned index;
   int duration;
@@ -37,7 +37,7 @@ public:
   Router(int numCities, int numFlights, Flight *flights);
   void findRoute(const Trip* trip, Itinerary *itinerary);
 private:
-  vertex *arr;
+  vertex arr[5700];
   Flight *edges;
   int *valid;
   int done;
